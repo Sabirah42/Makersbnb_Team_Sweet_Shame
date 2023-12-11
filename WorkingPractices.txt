@@ -1,0 +1,24 @@
+When will you start and finish working for the day?
+    10.15 - standup
+    10.30 - start pairing
+    15.30 - retros on retro days
+    16.00 - end work for Joceline
+    17.30 - end work rest of team
+
+How often will you take breaks?
+    Lunch: Take an hour as agreed with your pair (aim for between 12 and 2)
+    Breaks: As agreed with your pair
+
+Your cycle of stand-ups and retrospectives?
+    Standups: every morning
+    Retros: Tuesday and Thursday
+
+If someone feels frustrated or hopes for a change, how should they raise it with the team?
+    If it's a team frustration, either message n Slack or raise in one of the daily team meetings
+    If it's a personal frustration, private DM or request for call
+
+What are your personal objectives and how will you achieve them whilst working in a team?
+    Joceline: refreshing knowledge of Jira and Github branches/collaborations
+    Zoe: Get into habit of pushing/pulling/collaborating on Github
+    Liam: Learn to work productively in a team using ticketing board - Github & Jira
+    Sabirah: Learn how to create a webapp as I didn't get through all materials last week
