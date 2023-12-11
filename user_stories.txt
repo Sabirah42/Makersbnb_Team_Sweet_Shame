@@ -1,0 +1,12 @@
+As a user:
+So that i can pick a place to stay.
+I want to be able to see a list of available spaces.
+
+As a user
+So that i can decide if a space is suitable for me. 
+I want to be able to view more details about each space including a description and price. I'd also like a way to contact the lister to make a booking.  
+
+
+As a user
+So that i can advertise my space to rent
+I want to be able to list my space for others to browse. 
