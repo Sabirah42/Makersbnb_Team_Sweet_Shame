@@ -15,7 +15,7 @@ class UserRepository:
 
     def create(self, user):
         rows = self.connection.execute('INSERT INTO users (username, email, password) VALUES (%s, %s, %s) RETURNING id', [
-                                 user.username, user.email, user.password])
+                                user.username, user.email, user.password])
         return rows[0]['id']
 
     def get_username_from_id(self, user_id):
