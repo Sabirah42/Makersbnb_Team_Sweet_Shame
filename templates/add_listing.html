@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add Listing</title>
+    </head>
+    <body>
+        <h1>Add a Listing</h1>
+        <div>
+            <form action="/listings" method="POST">
+                <p>
+                    <label for="email">Email address:</label>
+                    <br>
+                    <input type="text" name="email" id="email">
+                </p>
+                <p>
+                    <label for="listing_name">Listing name:</label>
+                    <br>
+                    <input type="text" name="listing_name" id="listing_name">
+                </p>
+                <p>
+                    <label for="price">Price per night:</label>
+                    <br>
+                    <input type="text" name="price" id="price" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency">
+                </p>
+                <p>
+                    <label for="bedrooms">Number of bedrooms:</label>
+                    <br>
+                    <input type="number" step="1" name="bedrooms" id="bedrooms">
+                </p>
+                <p>
+                    <label for="description">Listing description:</label>
+                    <br>
+                    <input type="text" name="description" id="description">
+                </p>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>
