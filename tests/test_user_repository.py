@@ -16,3 +16,10 @@ def test_get_user_name_for_id(db_connection):
     repo = UserRepository(db_connection)
     result = repo.get_username_from_id(1)
     assert result == 'Liam'
+
+def test_get_id_from_email(db_connection):
+    db_connection.connect()
+    db_connection.seed('seeds/bnb_tables.sql')
+    repo = UserRepository(db_connection)
+    result = repo.get_user_id_from_email('liam@shame.com')
+    assert result == 1
