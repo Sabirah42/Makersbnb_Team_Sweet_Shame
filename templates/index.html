@@ -2,16 +2,17 @@
 <html>
     <head>
         <title>MakersBnB</title>
-
-        <!--
-            Head to https://github.com/makersacademy/web-applications-in-python/blob/main/pills/loading_css_or_static_files.md
-            If you're wondering how the CSS file below is being loaded.
-        -->
         <link rel="stylesheet" href="/static/style.css" >
     </head>
     <body>
-        <p>This is the homepage.</h1>
+        <h1>MakersBnB</h1>
+        {% for listing in listings %}
+        <div>
+            <br>{{listing.listing_name}}
+            <br>{{listing.price}}
+            <br>{{listing.bedrooms}}
+            <br>{{listing.description}}
+        </div>
+        {% endfor %}
     </body>
 </html>
-
-TEST TEXT
