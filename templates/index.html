@@ -6,13 +6,21 @@
     </head>
     <body>
         <h1>MakersBnB</h1>
-        {% for listing in listings %}
-        <div>
-            <br>{{listing.listing_name}}
-            <br>{{listing.price}}
-            <br>{{listing.bedrooms}}
-            <br>{{listing.description}}
+        <div id="listing">
+            <p id="listing-name">Roseview Gardens</p>
+                Price per night: £100
+                <br>Bedrooms: 3
+                <br>Floral cottage within walking distance of York city centre
+            
         </div>
-        {% endfor %}
+        <!-- {% for listing in listings %}
+            <div id="listing">
+            <p id="listing-name">{{listing.listing_name}}</p>
+            Price per night: {{listing.price}}
+            <br>Bedrooms: {{listing.bedrooms}}
+            <br>{{listing.description}}
+            </div>
+            
+        {% endfor %} -->
     </body>
 </html>
