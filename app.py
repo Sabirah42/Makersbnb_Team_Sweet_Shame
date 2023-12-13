@@ -1,5 +1,9 @@
+from lib.user import User
+from lib.user_repository import UserRepository 
+from lib.listing import Listing 
+from lib.listing_repository import ListingRepository 
 import os
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect 
 from lib.database_connection import get_flask_database_connection
 
 # Create a new Flask app
@@ -7,16 +11,39 @@ app = Flask(__name__)
 
 # == Your Routes Here ==
 
-# GET /index
-# Returns the homepage
-# Try it:
-#   ; open http://localhost:5000/index
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_index():
-    return render_template('index.html')
+    connection = get_flask_database_connection(app)
+    repo = ListingRepository(connection)
+    all_listings = repo.all()
+    return render_template('index.html', listings=all_listings)
+
+@app.route('/listings', methods=['POST'])
+def add_listing():
+    connection = get_flask_database_connection(app)
+    user_repo = UserRepository(connection)
+    listing_repo = ListingRepository(connection)
+    email = request.form['email']
+    user_id = user_repo.get_user_id_from_email(email)
+    listing_name, description, bedrooms, price = request.form['listing_name'], request.form['description'], request.form['bedrooms'], request.form['price']
+    listing = Listing(None, listing_name, description, bedrooms, price, user_id)
+    listing_repo.create(listing)
+    return redirect('/')
+    
+
+
+
+
+
+@app.route('/add_listing')
+def show_listing_sumbission_form():
+    return render_template('add_listing.html')
+
+
+
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
 # if started in test mode.
 if __name__ == '__main__':
-    app.run(debug=True, port=int(os.environ.get('PORT', 5000)))
+    app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
