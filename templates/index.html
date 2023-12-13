@@ -6,6 +6,10 @@
     </head>
     <body>
         <h1>MakersBnB</h1>
+        <a href="/add_listing">
+            <button type="button">Add Listing</button>
+        </a>
+
         {% for listing in listings %}
             <div id="listing">
             <p id="listing-name">{{listing.listing_name}}</p>
