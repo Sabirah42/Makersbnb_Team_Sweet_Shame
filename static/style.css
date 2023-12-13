@@ -1,20 +1,20 @@
 body {
     font-size: 18px;
+    text-align: center;
+    background-color: #d1e2e2;
+    font-family: sans-serif;
 }
 
 #listing {
-    background: #7ceaec;
-    padding: 35px;
+    background: #4dcdb6;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 35px;
     margin: 5px;
     border: solid 1px #7ceaec;
-    -moz-border-radius: 35px;
-    -webkit-border-radius: 35px;
-    -o-border-radius: 35px;
-    -ms-border-radius: 35px;
     border-radius: 35px;
-    -moz-box-shadow: 0 0 3px #7ceaec;
-    -webkit-box-shadow: 0 0 3px #7ceaec;
-    -o-box-shadow: 0 0 3px #7ceaec;
-    -ms-box-shadow: 0 0 3px #7ceaec;
-    box-shadow: 0 0 3px #7ceaec;
+}
+
+#listing-name {
+    font-weight: bold;
 }
