@@ -5,11 +5,15 @@
         <link rel="stylesheet" href="/static/style.css" >
     </head>
     <body>
-        <h1>MakersBnB</h1>
+       
         <a href="/add_listing">
             <button type="button">Add Listing</button>
         </a>
+        <a href="/">
+            <button type="button">Logout</button>
+        </a>
 
+            <h1>MakersBnB</h1>
         {% for listing in listings %}
             <div id="listing">
             <p id="listing-name">{{listing.listing_name}}</p>
