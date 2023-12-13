@@ -16,7 +16,7 @@ def get_index():
     connection = get_flask_database_connection(app)
     repo = ListingRepository(connection)
     all_listings = repo.all()
-    return render_template('index.html', listings=all_listings)
+    return render_template('index.html', listings=all_listings[::-1])
 
 @app.route('/listings', methods=['POST'])
 def add_listing():
