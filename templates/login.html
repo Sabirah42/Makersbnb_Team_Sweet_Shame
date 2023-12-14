@@ -8,6 +8,11 @@
         <a href="/"><h1>MakersBnB</h1></a>
         <div id="form">
             <form action="/login" method="POST">
+                {% if error %}
+                    <p class="login-error">
+                        Error: {{ error }}
+                    </p>
+                {% endif %}
                 <p>
                     <label for="email">Email address:</label>
                     <br>
