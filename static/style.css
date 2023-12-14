@@ -1,3 +1,4 @@
+/* main page styling */
 body {
     color:#148773;
     font-size: 18px;
@@ -5,6 +6,9 @@ body {
     background-color: #d1e2e2;
     font-family: sans-serif;
 }
+
+
+/* button styling */
 button {
     background-color: #02bb99de; 
     border: none;
@@ -14,7 +18,37 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    font-weight: bold;
 }
+
+button:hover {
+    background-color: #0ed7b2de; 
+}
+
+
+/* link styling */
+a:link {
+    color: #148773;
+    text-decoration: none;
+}
+  
+a:visited {
+    color: #148773;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #02bb99de;
+    text-decoration: none;
+}
+
+a:active {
+    color: #148773;
+    text-decoration: none;
+}
+
+
+/* listing styling */
 #listing {
     color: white;
     background: #02bb99de;
@@ -28,5 +62,50 @@ button {
 }
 
 #listing-name {
+    font-weight: bold;
+}
+
+
+/* form styling */
+#form {
+    color: white;
+    background: #02bb99de;
+    text-align: center;
+    letter-spacing: 0.5px;
+    padding-top: 15px;
+    padding-bottom: 35px;
+    margin: 5px;
+    border: solid 1px #7ceaec;
+    border-radius: 35px;
+}
+
+input[type=text] {
+    border: 3px solid #148773;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+input[type=number] {
+    border: 3px solid #148773;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+input[type=submit] {
+    background-color: white; 
+    border: none;
+    color: #02bb99de;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+input[type=submit]:hover {
+    background-color: #cffff6de;
     font-weight: bold;
 }
