@@ -16,7 +16,11 @@
         <a href="/"><h1>MakersBnB</h1></a>
         {% for listing in listings %}
             <div id="listing">
-            <p id="listing-name">{{listing.listing_name}}</p>
+            <p id="listing-name">
+            <a href="/listings/{{listing.id}}">
+            {{listing.listing_name}}
+            </a>
+            </p>
             Price per night: £{{listing.price}}
             <br>Number of bedrooms: {{listing.bedrooms}}
             <br>{{listing.description}}

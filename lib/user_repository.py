@@ -31,3 +31,9 @@ class UserRepository:
         if len(rows) == 0:
             raise Exception('User not found')
         return User(rows[0]['id'], rows[0]['username'], rows[0]['email'], rows[0]['password'])
+    
+    def get_user_from_id(self, id):
+        rows = self.connection.execute('SELECT * from users WHERE id=%s', [id])
+        if len(rows) == 0:
+            raise Exception('User not found')
+        return User(rows[0]['id'], rows[0]['username'], rows[0]['email'], rows[0]['password'])
