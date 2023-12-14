@@ -5,18 +5,12 @@
         <link rel="stylesheet" href="/static/style.css" >
     </head>
     <body>
-        <!-- <a href="/login">
-            <button type="button">Login</button>
-        </a>
-        <a href="/signup">
-            <button type="button">Signup</button>
-        </a> -->
         <ul>
             <li><a class="active" href="/login">Login</a></li>
             <li><a class="active" href="/signup">Signup</a></li>
         </ul>
 
-        <a href="/"><h1>MakersBnB</h1></a>
+        <h1>MakersBnB</h1>
         {% for listing in listings %}
             <div id="listing">
             <p id="listing-name">{{listing.listing_name}}</p>
