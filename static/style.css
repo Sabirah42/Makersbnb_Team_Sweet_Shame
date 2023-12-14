@@ -89,7 +89,7 @@ input[type=text] {
     border-radius: 10px;
 }
 
-#description {
+textarea {
     border: 3px solid #148773;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -97,9 +97,9 @@ input[type=text] {
     width: 40%;
     max-width: 420px;
     height: 300px;
-    /* word-wrap: break-word; */
-    overflow-wrap: anywhere;
     border-radius: 10px;
+    resize: vertical;
+    font-family: sans-serif;
 }
 
 input[type=number] {
