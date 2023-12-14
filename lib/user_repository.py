@@ -25,3 +25,9 @@ class UserRepository:
     def get_user_id_from_email(self, email):
         rows = self.connection.execute('SELECT id FROM users WHERE email=%s', [email])
         return rows[0]['id']
+    
+    def get_user_from_email(self, email):
+        rows = self.connection.execute('SELECT * from users WHERE email=%s', [email])
+        if len(rows) == 0:
+            raise Exception('User not found')
+        return User(rows[0]['id'], rows[0]['username'], rows[0]['email'], rows[0]['password'])

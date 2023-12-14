@@ -3,19 +3,22 @@ from lib.user_repository import UserRepository
 from lib.listing import Listing 
 from lib.listing_repository import ListingRepository 
 import os
-from flask import Flask, request, render_template, redirect 
+from flask import Flask, request, render_template, redirect, session 
 from lib.database_connection import get_flask_database_connection
 
-# Create a new Flask app
 app = Flask(__name__)
+app.secret_key = 'secretkey'
 
-# == Your Routes Here ==
+with app.app_context():
+    connection = get_flask_database_connection(app)
+
 
 @app.route('/', methods=['GET'])
 def get_index():
-    connection = get_flask_database_connection(app)
     repo = ListingRepository(connection)
     all_listings = repo.all()
+    if 'logged_in' in session and session['logged_in']:
+        return render_template('index_in.html', listings=all_listings[::-1])
     return render_template('index_out.html', listings=all_listings[::-1])
 
 @app.route('/listings', methods=['POST'])
@@ -39,8 +42,27 @@ def add_listing():
 def show_listing_sumbission_form():
     return render_template('add_listing.html')
 
+@app.route('/logout')
+def logout():
+    session.pop('logged_in')
+    return redirect('/')
 
+@app.route('/login')
+def login_form():
+    return render_template('login.html')
 
+@app.route('/login', methods=['POST'])
+def attempt_login():
+    email, password = request.form['email'], request.form['password']
+    user_repo = UserRepository(connection)
+    try:
+        user = user_repo.get_user_from_email(email)
+        if user:
+            if user.password == password:
+                session['logged_in'] = True
+                return redirect('/')
+    except Exception as e:
+        return redirect('/login')
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
