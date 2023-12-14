@@ -27,13 +27,10 @@ def get_index():
 
 @app.route('/listings', methods=['POST'])
 def add_listing():
-    connection = get_flask_database_connection(app)
-    user_repo = UserRepository(connection)
+    # connection = get_flask_database_connection(app)
     listing_repo = ListingRepository(connection)
-    email = request.form['email']
-    user_id = user_repo.get_user_id_from_email(email)
     listing_name, description, bedrooms, price = request.form['listing_name'], request.form['description'], request.form['bedrooms'], request.form['price']
-    listing = Listing(None, listing_name, description, bedrooms, price, user_id)
+    listing = Listing(None, listing_name, description, bedrooms, price, session['current_id'])
     listing_repo.create(listing)
     return redirect('/')
     
@@ -45,7 +42,8 @@ def show_listing_sumbission_form():
 def logout():
     session.pop('logged_in')
     session.pop('current_username')
-    session.pop('last_viewed')
+    session.pop('last_viewed', None)
+    session.pop('current_id')
     return redirect('/')
 
 @app.route('/login')
@@ -62,6 +60,7 @@ def attempt_login():
             if user.password == password:
                 session['logged_in'] = True
                 session['current_username'] = user.username
+                session['current_id'] = user.id 
                 return redirect('/')
             else:
                 raise Exception('Password is incorrect')
@@ -76,10 +75,6 @@ def show_single_listing(id):
     listing = listing_repo.get_listing_from_id(id) 
     user = user_repo.get_user_from_id(listing.user_id)
     return render_template('individual_listing.html', listing=listing, user=user)
-
-
-
-
 
 
 
