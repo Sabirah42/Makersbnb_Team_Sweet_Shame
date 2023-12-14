@@ -7,38 +7,38 @@ body {
     font-family: sans-serif;
 }
 
-
 /* button styling */
 button {
-    background-color: #02bb99de; 
+    background-color: rgb(224, 64, 6); 
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     font-weight: bold;
+    border-radius: 10px;
 }
 
 button:hover {
-    background-color: #0ed7b2de; 
+    background-color: gray; 
 }
 
 
 /* link styling */
 a:link {
-    color: #148773;
+    color: #0D2149;
     text-decoration: none;
 }
 
 a:visited {
-    color: #148773;
+    color: #0D2149;
     text-decoration: none;
 }
 
 a:hover {
-    color: #02bb99de;
+    color: gray;
     text-decoration: none;
 }
 
@@ -56,7 +56,7 @@ a:active {
     letter-spacing: 0.5px;
     padding-top: 15px;
     padding-bottom: 35px;
-    margin: 5px;
+    margin: 30px;
     border: solid 1px #7ceaec;
     border-radius: 35px;
 }
@@ -65,6 +65,17 @@ a:active {
     font-weight: bold;
 }
 
+#last-viewed-listing-name {
+    color: white;
+    background: #02bb99de;
+    text-align: center;
+    letter-spacing: 0.5px;
+    padding-top: 15px;
+    padding-bottom: 35px;
+    margin: 30px;
+    border: solid 1px #7ceaec;
+    border-radius: 35px;
+}
 
 /* form styling */
 #form {
@@ -89,7 +100,7 @@ input[type=text] {
     border-radius: 10px;
 }
 
-#description {
+textarea {
     border: 3px solid #148773;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -97,9 +108,9 @@ input[type=text] {
     width: 40%;
     max-width: 420px;
     height: 300px;
-    /* word-wrap: break-word; */
-    overflow-wrap: anywhere;
     border-radius: 10px;
+    resize: vertical;
+    font-family: sans-serif;
 }
 
 input[type=number] {
@@ -123,10 +134,10 @@ input[type=password] {
 }
 
 input[type=submit] {
-    background-color: white; 
-    border: 3px solid #148773;
-    color: #02bb99de;
-    padding: 15px 32px;
+    background-color: rgb(224, 64, 6); 
+    border: none;
+    color: white;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -136,6 +147,19 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #cffff6de;
+    background-color: gray;
     font-weight: bold;
+}
+
+.login-error{
+    border: none;
+    background-color: red;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 25%;
+    max-width: 420px;
+    border-radius: 3px;
+    margin: auto;
+    font-size: 14px;
 }
