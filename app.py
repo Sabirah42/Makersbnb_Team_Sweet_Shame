@@ -64,7 +64,7 @@ def attempt_login():
             else:
                 raise Exception('Password is incorrect')
     except Exception as e:
-        return redirect('/login')
+        return render_template('/login.html', error=e)
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
