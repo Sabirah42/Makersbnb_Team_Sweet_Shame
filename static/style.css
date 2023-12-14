@@ -1,15 +1,20 @@
 /* main page styling */
 body {
-    color:#148773;
+    color: white;
     font-size: 18px;
     text-align: center;
-    background-color: #d1e2e2;
+    background-image: url("https://tourismus.nuernberg.de/fileadmin/bilder/sehen/sehenswuerdigkeiten/versteckte_orte/lochgefaengnisse/lochgefaengnis_01.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
     font-family: sans-serif;
 }
 
 /* button styling */
 button {
-    background-color: rgb(224, 64, 6); 
+    background-color: red; 
     border: none;
     color: white;
     padding: 10px;
@@ -28,12 +33,12 @@ button:hover {
 
 /* link styling */
 a:link {
-    color: #0D2149;
+    color: red;
     text-decoration: none;
 }
 
 a:visited {
-    color: #0D2149;
+    color: red;
     text-decoration: none;
 }
 
@@ -43,7 +48,7 @@ a:hover {
 }
 
 a:active {
-    color: #148773;
+    color: black;
     text-decoration: none;
 }
 
@@ -51,13 +56,13 @@ a:active {
 /* listing styling */
 #listing {
     color: white;
-    background: #02bb99de;
+    background: rgb(0, 0, 0, 0.85);
     text-align: center;
     letter-spacing: 0.5px;
     padding-top: 15px;
     padding-bottom: 35px;
     margin: 30px;
-    border: solid 1px #7ceaec;
+    border: solid 1px red;
     border-radius: 35px;
 }
 
@@ -67,31 +72,31 @@ a:active {
 
 #last-viewed-listing-name {
     color: white;
-    background: #02bb99de;
+    background: rgb(0, 0, 0, 0.85);
     text-align: center;
     letter-spacing: 0.5px;
     padding-top: 15px;
     padding-bottom: 35px;
     margin: 30px;
-    border: solid 1px #7ceaec;
+    border: solid 1px red;
     border-radius: 35px;
 }
 
 /* form styling */
 #form {
     color: white;
-    background: #02bb99de;
+    background: rgb(0, 0, 0, 0.85);
     text-align: center;
     letter-spacing: 0.5px;
     padding-top: 15px;
     padding-bottom: 35px;
     margin: 5px;
-    border: solid 1px #7ceaec;
+    border: solid 1px red;
     border-radius: 35px;
 }
 
 input[type=text] {
-    border: 3px solid #148773;
+    border: 3px solid darkgray;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -101,7 +106,7 @@ input[type=text] {
 }
 
 textarea {
-    border: 3px solid #148773;
+    border: 3px solid darkgray;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -114,7 +119,7 @@ textarea {
 }
 
 input[type=number] {
-    border: 3px solid #148773;
+    border: 3px solid darkgray;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -124,7 +129,7 @@ input[type=number] {
 }
 
 input[type=password] {
-    border: 3px solid #148773;
+    border: 3px solid darkgray;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -134,7 +139,7 @@ input[type=password] {
 }
 
 input[type=submit] {
-    background-color: rgb(224, 64, 6); 
+    background-color: red; 
     border: none;
     color: white;
     padding: 10px;

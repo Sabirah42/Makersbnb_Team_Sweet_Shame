@@ -12,7 +12,7 @@
             <button type="button">Logout</button>
         </a>
 
-        <a href="/"><h1>MakersBnB</h1></a>
+        <h1>MakersBnB</h1>
         <h2>Welcome, {{ current_username }}!</h2>
         {% if last_viewed_listing %}
         <div>
@@ -21,6 +21,7 @@
             <a href="/listings/{{last_viewed_listing.id}}" id="listing-name">
             {{last_viewed_listing.listing_name}}
             </a>
+            <br>
             <br>Price per night: £{{last_viewed_listing.price}}
             <br>Number of bedrooms: {{last_viewed_listing.bedrooms}}
             <br>
