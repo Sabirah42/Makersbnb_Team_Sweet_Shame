@@ -61,6 +61,8 @@ def attempt_login():
             if user.password == password:
                 session['logged_in'] = True
                 return redirect('/')
+            else:
+                raise Exception('Password is incorrect')
     except Exception as e:
         return redirect('/login')
 
