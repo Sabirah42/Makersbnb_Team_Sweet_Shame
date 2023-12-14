@@ -16,3 +16,7 @@ class ListingRepository:
         rows = self.connection.execute('INSERT INTO listings (listing_name, description, bedrooms, price, user_id) VALUES (%s, %s, %s, %s, %s) RETURNING id', [
                                 listing.listing_name, listing.description, listing.bedrooms, listing.price, listing.user_id])
         return rows[0]['id']
+
+    def get_listing_from_id(self, id):
+        rows = self.connection.execute('SELECT * from listings WHERE id=%s', [id])
+        return Listing(rows[0]['id'], rows[0]['listing_name'], rows[0]['description'], rows[0]['bedrooms'], rows[0]['price'], rows[0]['user_id'])

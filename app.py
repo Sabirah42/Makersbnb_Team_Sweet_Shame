@@ -65,6 +65,20 @@ def attempt_login():
                 raise Exception('Password is incorrect')
     except Exception as e:
         return render_template('/login.html', error=e)
+    
+@app.route('/listings/<id>')
+def show_single_listing(id):
+    user_repo = UserRepository(connection)
+    listing_repo = ListingRepository(connection)
+    listing = listing_repo.get_listing_from_id(id) 
+    user = user_repo.get_user_from_id(listing.user_id)
+    return render_template('individual_listing.html', listing=listing, user=user)
+
+
+
+
+
+
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
