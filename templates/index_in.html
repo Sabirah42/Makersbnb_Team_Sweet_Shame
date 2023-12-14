@@ -14,6 +14,22 @@
         </a>
 
         <a href="/"><h1>MakersBnB</h1></a>
+        <h2>Welcome {{ current_username }}!</h2>
+        {% if last_viewed_listing %}
+        <div>
+        <br/>You last viewed: 
+        <p id="last-viewed-listing-name">
+            <a href="/listings/{{last_viewed_listing.id}}">
+            {{last_viewed_listing.listing_name}}
+            </a>
+            </p>
+            Price per night: £{{last_viewed_listing.price}}
+            <br>Number of bedrooms: {{last_viewed_listing.bedrooms}}
+            <br>{{last_viewed_listing.description}}
+            
+        </div>
+        {% endif %}
+        <div>
         {% for listing in listings %}
             <div id="listing">
             <p id="listing-name">
@@ -27,5 +43,6 @@
             </div>
             
         {% endfor %}
+        </div>
     </body>
 </html>
