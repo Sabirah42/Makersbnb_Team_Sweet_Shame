@@ -150,3 +150,13 @@ input[type=submit]:hover {
     background-color: gray;
     font-weight: bold;
 }
+
+.login-error{
+    border: none;
+    background-color: red;
+    text-align: center;
+    width: 25%;
+    max-width: 420px;
+    border-radius: 3px;
+    margin: auto;
+}
