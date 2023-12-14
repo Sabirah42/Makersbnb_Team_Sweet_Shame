@@ -4,7 +4,13 @@
         <title>{{listing.listing_name}}</title>
         <link rel="stylesheet" href="/static/style.css" >
     </head>
-        <a href="/"><h1>MakersBnB</h1></a>
+    <body>
+        <ul>
+            <li><a class="active" href="/logout">Logout</a></li>
+            <li><a href="/">Homepage</a></li>
+        </ul>
+
+        <h1>MakersBnB</h1>
             <div id="listing">
             <p id="listing-name">{{listing.listing_name}}</p>
             Price per night: £{{listing.price}}
