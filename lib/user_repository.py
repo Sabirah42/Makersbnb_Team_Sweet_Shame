@@ -37,3 +37,14 @@ class UserRepository:
         if len(rows) == 0:
             raise Exception('User not found')
         return User(rows[0]['id'], rows[0]['username'], rows[0]['email'], rows[0]['password'])
+    
+    def retrieve_last_viewed(self, user_id):
+        rows = self.connection.execute('SELECT * from last_viewed_listings WHERE user_id=%s', [user_id])
+        if len(rows) == 0:
+            return None
+        else:
+            return rows[0]['listing_id']
+        
+    def set_last_viewed(self, user_id, listing_id):
+        rows = self.connection.execute('INSERT INTO last_viewed_listings (user_id, listing_id) VALUES (%s, %s) ON CONFLICT (user_id) DO UPDATE SET listing_id = EXCLUDED.listing_id', [user_id, listing_id])
+        return None
