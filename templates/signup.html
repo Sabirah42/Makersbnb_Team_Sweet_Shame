@@ -5,7 +5,11 @@
         <link rel="stylesheet" href="/static/style.css" >
     </head>
     <body>
-        <a href="/"><h1>MakersBnB</h1></a>
+        <ul>
+            <li><a class="active" href="/">Homepage</a></li>
+            <li><a class="active" href="/login">Login</a></li>
+        </ul>
+        <h1>MakersBnB</h1>
         <div id="form">
             <form action="/signup" method="POST">
                 {% if error %}
