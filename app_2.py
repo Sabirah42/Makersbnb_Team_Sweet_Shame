@@ -87,14 +87,20 @@ def show_sign_up_form():
 
 @app.route('/signup', methods=['POST'])
 def create_new_user():
-    username, email, password = request.form['username'], request.form['email'], request.form['password']
-    user_repo = UserRepository(connection)
-    user = User(None, username, email, password)
-    new_user = user_repo.create(user)
-    session['current_id'] = new_user.id
-    session['current_username'] = username 
-    session['logged_in'] = True 
-    return redirect('/')
+    username, email, password, confirm_password = request.form['username'], request.form['email'], request.form['password'], request.form['confirm_password']
+    try: 
+        user_repo = UserRepository(connection)
+        if password != confirm_password:
+            raise Exception('Passwords do not match.')
+        else:
+            user = User(None, username, email, password)
+            new_user_id = user_repo.create(user)
+            session['current_id'] = new_user_id
+            session['current_username'] = username 
+            session['logged_in'] = True 
+            return redirect('/')
+    except Exception as e:
+        return render_template('signup.html', error=e)
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
