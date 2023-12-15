@@ -80,3 +80,5 @@ def get_flask_database_connection(app):
             test_mode=os.getenv('APP_ENV') == 'test')
         g.flask_database_connection.connect()
     return g.flask_database_connection
+
+# we are still awesome
