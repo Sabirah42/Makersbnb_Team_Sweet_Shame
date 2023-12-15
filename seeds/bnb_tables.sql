@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS last_viewed_listings;
--- DROP TABLE IF EXISTS listings;
--- DROP SEQUENCE IF EXISTS listings_id_seq;
--- DROP TABLE IF EXISTS users;
--- DROP SEQUENCE IF EXISTS users_id_seq;
+DROP TABLE IF EXISTS listings;
+DROP SEQUENCE IF EXISTS listings_id_seq;
+DROP TABLE IF EXISTS users;
+DROP SEQUENCE IF EXISTS users_id_seq;
 
 CREATE SEQUENCE IF NOT EXISTS users_id_seq;
 CREATE TABLE users (
@@ -31,13 +31,12 @@ CREATE TABLE last_viewed_listings (
 );
 
 
+INSERT INTO users (username, email, password) VALUES ('Liam', 'liam@shame.com', 'password1');
+INSERT INTO users (username, email, password) VALUES ('Sabirah', 'sabirah@shame.com', 'password1');
+INSERT INTO users (username, email, password) VALUES ('Zoe', 'zoe@shame.com', 'password1');
+INSERT INTO users (username, email, password) VALUES ('Joceline', 'joceline@shame.com', 'password1');
 
--- INSERT INTO users (username, email, password) VALUES ('Liam', 'liam@shame.com', 'password1');
--- INSERT INTO users (username, email, password) VALUES ('Sabirah', 'sabirah@shame.com', 'password1');
--- INSERT INTO users (username, email, password) VALUES ('Zoe', 'zoe@shame.com', 'password1');
--- INSERT INTO users (username, email, password) VALUES ('Joceline', 'joceline@shame.com', 'password1');
 
-
--- INSERT INTO listings (listing_name, description, bedrooms, price, user_id) VALUES ('Rose View House', 'A beautiful family home with a view of roses.', 5, 300, 1);
--- INSERT INTO listings (listing_name, description, bedrooms, price, user_id) VALUES ('Shame Cottage', 'A dank dungeon in the heart of York.', 1, 10000, 2);
--- INSERT INTO listings (listing_name, description, bedrooms, price, user_id) VALUES ('The Basement Of Zoe', 'Ideal for Gremlins.', 1, 2, 3);
+INSERT INTO listings (listing_name, description, bedrooms, price, user_id) VALUES ('Rose View House', 'A beautiful family home with a view of roses.', 5, 300, 1);
+INSERT INTO listings (listing_name, description, bedrooms, price, user_id) VALUES ('Shame Cottage', 'A dank dungeon in the heart of Scarborough.', 1, 10000, 2);
+INSERT INTO listings (listing_name, description, bedrooms, price, user_id) VALUES ('Zoe''s Basement', 'Ideal for Gremlins.', 1, 2, 3);
