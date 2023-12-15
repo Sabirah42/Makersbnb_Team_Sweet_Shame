@@ -15,9 +15,13 @@ with app.app_context():
 
 @app.route('/', methods=['GET'])
 def get_index():
+    user_repo = UserRepository(connection)
     repo = ListingRepository(connection)
     all_listings = repo.all()
     if 'logged_in' in session and session['logged_in']:
+        
+        if user_repo.retrieve_last_viewed(session['current_id']) is not None:
+            session['last_viewed'] = user_repo.retrieve_last_viewed(session['current_id'])
         if 'last_viewed' in session: 
             last_viewed_listing = repo.get_listing_from_id(session['last_viewed'])
             return render_template('index_in.html', listings=all_listings[::-1], last_viewed_listing=last_viewed_listing, current_username=session['current_username'])
@@ -42,8 +46,9 @@ def show_listing_sumbission_form():
 def logout():
     session.pop('logged_in')
     session.pop('current_username')
-    session.pop('last_viewed', None)
     session.pop('current_id')
+    if 'last_viewed' in session:
+        del session['last_viewed']
     return redirect('/')
 
 @app.route('/login')
@@ -69,8 +74,8 @@ def attempt_login():
     
 @app.route('/listings/<id>')
 def show_single_listing(id):
-    session['last_viewed'] = int(id)
     user_repo = UserRepository(connection)
+    session['last_viewed'] = user_repo.set_last_viewed(session['current_id'], id)
     listing_repo = ListingRepository(connection)
     listing = listing_repo.get_listing_from_id(id) 
     user = user_repo.get_user_from_id(listing.user_id)
