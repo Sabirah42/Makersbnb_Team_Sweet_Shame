@@ -68,6 +68,10 @@ class DatabaseConnection:
         else:
             return self.DEV_DATABASE_NAME
 
+
+    def rollback(self):
+        if self.connection is not None:
+            self.connection.rollback()
 # This function integrates with Flask to create one database connection that
 # Flask request can use. To see how to use it, look at example_routes.py
 def get_flask_database_connection(app):

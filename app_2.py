@@ -1,10 +1,11 @@
+import os
 from lib.user import User
 from lib.user_repository import UserRepository 
 from lib.listing import Listing 
 from lib.listing_repository import ListingRepository 
-import os
-from flask import Flask, request, render_template, redirect, session 
 from lib.database_connection import get_flask_database_connection
+from flask import Flask, request, render_template, redirect, session 
+from psycopg import IntegrityError
 
 app = Flask(__name__)
 app.secret_key = 'secretkey'
@@ -99,8 +100,21 @@ def create_new_user():
             session['current_username'] = username 
             session['logged_in'] = True 
             return redirect('/')
+    except IntegrityError as ie:
+        print(str(ie))
+        user_repo.connection.rollback()
+        error_message = str(ie)
+        if 'users_username_key'   in  error_message and 'users_email_key' in error_message:
+            return render_template('signup.html', error='Bother username and email are already taken.')
+        elif 'users_username_key'   in  error_message:
+            return render_template('signup.html', error='Username already taken.')
+        elif 'users_email_key'   in  error_message:
+            return render_template('signup.html', error='Email already taken.')
+        else:
+            return render_template('signup.html', error='An unexpected error occured, please try again.')
     except Exception as e:
         return render_template('signup.html', error=e)
+
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
